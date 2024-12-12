@@ -9,9 +9,19 @@ def cadastrar_disc():
     codigo = gerar_codigo_matricula()
     carga = int(input('Digite a carga horária da disciplina: \n'))
     
-    return {
-        'Nome da Disciplina': nome, 
-        'Código da disciplina': codigo,
-        'Carga Horária da Disciplina': carga,
-    }
+    if professores:
+        print('Professores disponiveis')
+        print(listar_professores())
+        escolha = input('Você deseja adicionar um professor existente ou um novo? [novo] [existente]\n')
+        if escolha == 'existente':
+            code_professor = int(input('Digite o código do professor que deseja adicionar:\n ')) -1
+            professor = professores[code_professor]
+        else:
+            professor = cadastrar_professor()
+        
+    else:
+        print('Ainda não existemm professores cadastrados, vamos cadastrar um agora!')
+        professor = cadastrar_professor()
+        
+    
     

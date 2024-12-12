@@ -40,7 +40,10 @@ def cadastrar_professor():
     
     professores.append(professor)
     return professor
+
 def listar_professores(): 
-    print("Professores cadastrados:") 
+    if not professores:
+        print('Poxa, não tem nenhum professor cadastrado')
+        return
     for idx, professor in enumerate(professores, start=1): 
         print(f"{idx}. {professor['nome']}")
