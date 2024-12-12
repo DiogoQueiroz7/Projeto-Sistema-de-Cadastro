@@ -1,4 +1,5 @@
 from codigo_matricula import gerar_codigo_matricula
+from cadastro_professores import cadastrar_professor, listar_professores, professores
 
 
 print('Olá, este é o cadastro de disciplinas, vamos começar!')

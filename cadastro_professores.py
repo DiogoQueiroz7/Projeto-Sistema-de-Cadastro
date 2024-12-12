@@ -17,9 +17,12 @@ def cadastrar_professor():
     bairro = input('Qual o nome do seu bairro? \n')
     
     disc_professor = []
+    while adicionar_disciplina.lower() == 'sim': 
+        disc_professor.append(cadastrar_disc()) 
+        adicionar_disciplina = input('Deseja adicionar mais uma disciplina a este professor? [sim] [nao]\n')
     
     
-    return {'nome': nome,  
+    professor = {'nome': nome,  
             'data de nascimento': nasc, 
             'sexo': sexo, 
             'Telefone': tel, 
@@ -31,6 +34,13 @@ def cadastrar_professor():
                 'Rua': rua, 
                 'Número': num,
                 'Bairro': bairro
-                }
+                },
+            'Disciplinas': disc_professor
             }
     
+    professores.append(professor)
+    return professor
+def listar_professores(): 
+    print("Professores cadastrados:") 
+    for idx, professor in enumerate(professores, start=1): 
+        print(f"{idx}. {professor['nome']}")
