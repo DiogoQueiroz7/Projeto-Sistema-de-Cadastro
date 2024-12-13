@@ -27,14 +27,10 @@ def cadastrar_aluno():
                 'Bairro': bairro
                 }
             }
-    
-resposta = 'sim' 
-while True:
-    alunos.append(cadastrar_aluno())
-    resposta = input(str('Deseja matricular mais um aluno? [sim] [nao]: \n'))
-    if resposta == 'sim':
-        print('Tudo bem, vamos lá!')
-    else:
-        print('Ok, muito obrigado!')
+def listar_alunos():
+    if not alunos: 
+        print('Poxa, não tem nenhum aluno cadastrado') 
+        return 
+    for idx, aluno in enumerate(alunos, start=1): 
+        print(f"{idx}. {aluno['nome']}")
 
-print(alunos)
